@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const yup = require('yup');
-const { logger } = require('../loggers');
+const logger = require('../../loggers').createLogger(module);
 
 const { MONGO_DB_PASSWORD, MONGO_DB_HOST, MONGO_DB_DATABASE, MONGO_DB_USER } = process.env;
 

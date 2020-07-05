@@ -4,13 +4,14 @@ const path = require('path')
 
 const createLogger = (options) => {
     const {
+        moduleName = 'unknown',
         correlation = false,
         level = "info",
         outputDir = "./logs",
         getCorrelationId,
         noCorrelationId
     } = options;
-
+    
     return winston.createLogger({
         level,
         format: winston.format.combine(
@@ -20,7 +21,7 @@ const createLogger = (options) => {
                 }
                 return info;
             })(),
-            winston.format.label({ label: path.basename(process.mainModule.filename) }),
+            winston.format.label({ label: moduleName }),
             winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
             winston.format.metadata({ fillExcept: ['message', 'level', 'timestamp', 'label'] }),
             winston.format.colorize()

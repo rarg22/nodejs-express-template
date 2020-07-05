@@ -7,7 +7,7 @@ const helmet = require('helmet')
 
 dotenv.config();
 
-const Routers = require('./src/module/Routers');
+const Routers = require('./src/module/RouterResolver');
 
 app.use(helmet())
 app.use(CorrelationId.middleware);

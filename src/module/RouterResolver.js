@@ -1,6 +1,6 @@
 const glob = require('glob')
-const { logger } = require('../../loggers');
-const application = require('../configuration/application');
+const logger = require('../../loggers').createLogger(module);
+const application = require('../configuration/Application');
 
 const DEFAULT_MODULES_ROOT_DIRECTORY = './src';
 

@@ -1,8 +1,7 @@
 //Import the mongoose module
 const mongoose = require('mongoose');
 const yup = require('yup');
-const e = require('express');
-const { logger } = require('../loggers');
+const logger = require('../loggers').createLogger(module);
 
 //Set up default mongoose connection
 const { MONGO_DB_PASSWORD, MONGO_DB_HOST, MONGO_DB_DATABASE, MONGO_DB_USER } = process.env;
